@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: フルリクエスト
+about: フルリクエスト用
 title: ''
 labels: ''
 assignees: ''
