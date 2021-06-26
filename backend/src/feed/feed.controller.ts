@@ -8,10 +8,9 @@ import {
   Param,
   Body,
 } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
 import { FeedService } from './feed.service';
 import { PaginationDto, FeedPaginated } from 'src/dto/pagenation';
-import { feedDto } from 'src/dto/feed';
+import { FeedDto } from 'src/dto/feed';
 
 @Controller('feed')
 export class FeedController {
@@ -36,12 +35,12 @@ export class FeedController {
   }
 
   @Post()
-  createFeed(@Body() data: feedDto) {
+  createFeed(@Body() data: FeedDto) {
     return this.service.createFeed(data);
   }
 
   @Put(':id')
-  updateFeed(@Param('id') id: number, @Body() data: feedDto) {
+  updateFeed(@Param('id') id: number, @Body() data: FeedDto) {
     return this.service.updateFeed(id, data);
   }
 

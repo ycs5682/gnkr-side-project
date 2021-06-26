@@ -1,4 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeUpdate } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BeforeUpdate,
+  ManyToOne,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
+import { User } from 'src/user/user.entity';
+import { Tag } from 'src/tags/tag.entity';
 
 @Entity()
 export class Feed {
@@ -10,6 +20,24 @@ export class Feed {
 
   @Column('text')
   body: string;
+
+  @Column()
+  userId: number;
+
+  @ManyToOne((type) => User, (user) => user.feed, {
+    nullable: false,
+    // foreign key constraint failed 対応
+    onDelete: 'CASCADE',
+  })
+  user: User;
+
+  @ManyToMany((type) => Tag, (tag) => tag.feed, {
+    cascade: true,
+    // foreign key constraint failed 対応
+    onDelete: 'CASCADE',
+  })
+  @JoinTable()
+  tags: Tag[];
 
   //  TODO: mysqlに変更する場合、datetime -> timestampに変更
   @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
