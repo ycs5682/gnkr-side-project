@@ -1,8 +1,17 @@
+# gnkr-side-project backend
 
-## Installation
+<br>
 
-```bash
-$ npm install
+このプロジェクトはNestJSで作成しました。
+
+<br>
+
+## Swagger URL
+
+```
+$ npm run start
+
+http://localhost:4000/docs/
 ```
 
 ## ** Migration **
@@ -13,6 +22,12 @@ $ npm install
 $ npm run build
 
 $ npx typeorm migration:run
+```
+
+## Installation
+
+```bash
+$ npm install
 ```
 
 ## Running the app
