@@ -11,7 +11,9 @@ import {
 import { FeedService } from './feed.service';
 import { PaginationDto, FeedPaginated } from 'src/dto/pagenation';
 import { FeedDto } from 'src/dto/feed';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('feed')
 @Controller('feed')
 export class FeedController {
   constructor(private readonly service: FeedService) {}

@@ -9,6 +9,9 @@ async function bootstrap() {
     .setTitle('real-world')
     .setDescription('RestApiで作成しました。')
     .setVersion('1.0')
+    .addTag('feed')
+    .addTag('user')
+    .addTag('tags')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
